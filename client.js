@@ -9,6 +9,7 @@ let employeeInfo = []
 function onReady() {
     console.log('in jQuery');
     $('#submitInfo').on('click', inputInfo)
+    $('#submitInfo').on('click', addSalary)
 }
 
 function inputInfo() {
@@ -20,6 +21,30 @@ function inputInfo() {
         salary: $('#empSalary').val()
     }
     console.log(employeeInfo);
+
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#idNumber').val('');
+    $('#jobTitle').val('');
+    $('#empSalary').val('');
     
 employeeInfo.push(employeeJobInfo)
+    
+addSalary()
 }
+
+function addSalary() {
+    console.log('in add salary');
+  for (let i = 0; i < employeeInfo.length; i++) {
+      let salaryCounter = employeeInfo[i].salary;
+    console.log(salaryCounter);
+    return salaryCounter;
+    ;
+    
+      
+  }
+    
+        
+        
+    }
+    
