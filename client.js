@@ -10,6 +10,13 @@ function onReady() {
     console.log('in jQuery');
     $('#submitInfo').on('click', inputInfo)
     $('#submitInfo').on('click', addSalary)
+    $('.showInfo').on('click', displayPeople)
+    $('#showInfo').on('click', '.deleteButton', deleteItem)
+}
+
+function deleteItem() {
+  $(this).parent().remove();
+  
 }
 
 function inputInfo() {
@@ -31,20 +38,33 @@ function inputInfo() {
 employeeInfo.push(employeeJobInfo)
     
 addSalary()
+displayPeople(employeeInfo)
 }
 
 function addSalary() {
     console.log('in add salary');
+  let salaryCounter = 0;
   for (let i = 0; i < employeeInfo.length; i++) {
-      let salaryCounter = employeeInfo[i].salary;
-    console.log(salaryCounter);
-    return salaryCounter;
-    ;
-    
-      
+  
+    salaryCounter += parseInt(employeeInfo[i].salary)
+
   }
+  console.log(salaryCounter);
     
-        
-        
+    }
+    function displayPeople(arrayParam){
+      $('#showInfo').empty();
+      for (let i = 0; i < arrayParam.length; i++) {
+        let showingInfo = arrayParam[i];
+      $('#showInfo').append(`<li>
+        ${arrayParam[i].firstName}
+        ${arrayParam[i].lastName}
+        ${arrayParam[i].idNumber}
+        ${arrayParam[i].jobTitle}
+        ${arrayParam[i].salary}
+        <button class="deleteButton">Delete</button>
+        </li>`);
+      }
+      
     }
     
