@@ -12,7 +12,18 @@ function onReady() {
     $('#submitInfo').on('click', addSalary)
     $('.showInfo').on('click', displayPeople)
     $('#showInfo').on('click', '.deleteButton', deleteItem)
+    // $('#submitInfo').on('click', month)
 }
+
+// function month() {
+//    let monthlyCosts = employeeInfo.salary
+//    console.log(monthlyCosts / 12);
+   
+//   if (monthlyCosts > 20000) {
+//     console.log('too much');
+
+//   }
+// }
 
 function deleteItem() {
   $(this).parent().remove();
@@ -49,6 +60,15 @@ function addSalary() {
     salaryCounter += parseInt(employeeInfo[i].salary)
 
   }
+  let monthlyCosts = salaryCounter / 12;
+  console.log(monthlyCosts);
+  
+  if (monthlyCosts > 20000) {
+    console.log('too much');
+    $('#showInfo').css("background-color", "red")
+    
+  }
+  
   console.log(salaryCounter);
     
     }
